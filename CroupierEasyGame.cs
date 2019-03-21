@@ -9,8 +9,9 @@ namespace Casino
     class CroupierEasyGame : Croupier
     {
         private string[] deck;
-        private string[] resultTable = new string[10];
+        private string[] resultTable;
         private string[] cardsColors = new string[2];
+        private int loops = 10;
 
         public string[] PlayEasyGame(string line)
         {
@@ -20,14 +21,15 @@ namespace Casino
             else
                 deck = CreateTheDeck(key);
 
-            resultTable = PlayWarGame(deck);
+            resultTable = PlayWarGame(deck, loops);
             return resultTable;
         }
 
-        private string[] PlayWarGame(string[] deck)
+        protected string[] PlayWarGame(string[] deck, int loops)
         {
+            resultTable = new string[loops];
             Random randomizer = new Random();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < loops; i++)
             {
                 var index1 = randomizer.Next(deck.Length);
                 var index2 = randomizer.Next(deck.Length);

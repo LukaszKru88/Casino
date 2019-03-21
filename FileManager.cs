@@ -61,6 +61,9 @@ namespace Casino
                 case "4":
                     outFilePath = "E:/Qki-Dev/Corealate 2/Files/OutData-4.txt";
                     break;
+                case "5":
+                    outFilePath = "E:/Qki-Dev/Corealate 2/Files/OutData-5.txt";
+                    break;
             }
 
             return outFilePath;

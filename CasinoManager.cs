@@ -12,6 +12,7 @@ namespace Casino
         private CroupierUnpacker _croupierUnpacker;
         private CroupierRandomizer _croupierRandomizer;
         private CroupierEasyGame _croupierEasyGame;
+        private CroupierHardGame _croupierHardGame;
         private string[] lines;
         private string[] deck;
         private string line;
@@ -44,11 +45,15 @@ namespace Casino
                     case "4":
                         Task_4(action);
                         break;
+                    case "5":
+                        Task_5(action);
+                        break;
                     case "all":
                         Task_1("1");
                         Task_2("2");
                         Task_3("3");
                         Task_4("4");
+                        Task_5("5");
                         break;
                     case "0":
                         break;
@@ -57,7 +62,6 @@ namespace Casino
                         Console.WriteLine("Unknown command");
                         Console.ReadKey();
                         break;
-
                 }
             }
             while (action != "0");
@@ -70,6 +74,7 @@ namespace Casino
             Console.WriteLine("2 - Unpack the deck");
             Console.WriteLine("3 - Unpack the decks and  get random 10 cards");
             Console.WriteLine("4 - Play an easy card game");
+            Console.WriteLine("5 - Play a hard card game");
             Console.WriteLine("all - Perform all tasks in sequence");
             Console.WriteLine("-----------------------");
             Console.WriteLine("0 - Exit");
@@ -128,7 +133,17 @@ namespace Casino
             _croupierEasyGame = new CroupierEasyGame();
             deck = _croupierEasyGame.PlayEasyGame(line);
             _fileManager.SaveToFile(deck, action);
-            Console.WriteLine("The game finished and the results were stored in file.");
+            Console.WriteLine("The easy game finished and the results were stored in file.");
+            Console.ReadKey();
+        }
+
+        private void Task_5(string action)
+        {
+            Console.Clear();
+            _croupierHardGame = new CroupierHardGame();
+            deck = _croupierHardGame.PlayHardGame();
+            _fileManager.SaveToFile(deck, action);
+            Console.WriteLine("The hard game finished and the results were stored in file.");
             Console.ReadKey();
         }
     }
