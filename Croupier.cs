@@ -13,9 +13,7 @@ namespace Casino
             {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
         private int? startPlace = null;
         private int? endPlace = null;
-        //private char color;
         protected string[] key;
-        //protected char[] symbols;
         char[] colorsKey;
         char[] verifiedColors = new char[4];
         bool correctColorKey = true;
@@ -117,23 +115,6 @@ namespace Casino
                     }
                 }
             }
-            //{
-            //    int index = 0;
-            //    int range = (eP - sP) + 1;
-            //    deck = new string[range];
-
-            //    for (int i = 0; i < colors.Length; i++)
-            //    {
-            //        if (color == colors[i])
-            //            index = i;
-            //    }
-
-            //    for(int i = 0; i < deck.Length; i++)
-            //    {
-            //        deck[i] = figures[sP] + colors[index];
-            //        sP++;
-            //    }
-            //}
             return deck;
         }
     }
